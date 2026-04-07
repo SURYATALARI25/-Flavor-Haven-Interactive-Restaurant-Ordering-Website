@@ -5,8 +5,8 @@ A responsive and modern restaurant website built using HTML, CSS, and JavaScript
 ---
 
 ## 🌐 Live Demo
-
-🔗 Coming soon...
+[
+🔗 Coming soon...](https://flavorheavenn.netlify.app/)
 
 ---
 
