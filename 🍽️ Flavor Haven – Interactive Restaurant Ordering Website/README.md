@@ -13,22 +13,27 @@ A responsive and modern restaurant website built using HTML, CSS, and JavaScript
 ## 📸 Screenshots
 
 ### 🏠 Home Page
-![Home]()
+<img width="1333" height="645" alt="Home" src="https://github.com/user-attachments/assets/d20046dd-894c-4158-a7ad-7617b4851e54" />
 
 
 ### 📖 Menu Page
-![Menu](My restaurant website project/Flavor-Haven-Project/images/Home.png)
+
+<img width="1366" height="570" alt="Menu" src="https://github.com/user-attachments/assets/763bcdfe-3a04-4250-85ae-ebc3dfae9a0c" />
+
 ### 🍽️ Item Details
-![Item Details](My-Restaurant-website-project/Flavor-Haven-Project/images/Item-Details.png)
+<img width="1366" height="622" alt="Item" src="https://github.com/user-attachments/assets/07107e68-0a2e-4d25-8886-41705cdc0f95" />
+
 
 ### 📞 Contact Page
-![Contact](My-Restaurant-website-project/Flavor-Haven-Project/images/Amount-Details.png)
+<img width="342" height="338" alt="contact" src="https://github.com/user-attachments/assets/105232bd-4fd3-4676-94a0-cbc137bfb476" />
+
 
 ### 💳 Payment Option Page
-![Payment](My-Restaurant-website-project/Flavor-Haven-Project/images/Payment-Details.png)
+<img width="1366" height="649" alt="Amount" src="https://github.com/user-attachments/assets/cb6e37db-a531-4020-bc97-41e2966e76d4" />
+<img width="1366" height="626" alt="Payment" src="https://github.com/user-attachments/assets/4a715cd3-fe73-4678-ad13-69e6d8828709" />
 
 ### ✅ Order Confirmation
-![Order](My-Restaurant-website-project/Flavor-Haven-Project/images/Order-Confirmed.png)
+<img width="1366" height="637" alt="Order" src="https://github.com/user-attachments/assets/8d1c4f53-87fe-49e5-93d3-b70aedae2d4b" />
 
 ---
 
