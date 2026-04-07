@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flavor Haven Restaurant</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="index.css">
+
+</head>
+<!-- Chat Button -->
+<div class="chatbot-btn" onclick="toggleChat()">💬
+  
+</div>
+
+<!-- Chat Box -->
+<div class="chatbot-box" id="chatbox">
+ 
+  <div class="chat-header">
+  <span class="back-btn" onclick="toggleChat()">⬅️</span>
+  Support
+</div>
+  <div class="chat-body" id="chat-body">
+    <p><b>Bot:</b> Hi! Need help?</p>
+  </div>
+
+  <input 
+    type="text" 
+    id="chat-input" 
+    placeholder="Type your message..."
+    onkeydown="sendMessage(event)"
+  >
+</div>
+<body>
+
+<!-- MENU PAGE -->
+<div class="page active" id="menu-page">
+  <div class="menu-container">
+    <header class="menu-header">
+      <h1>🍽️ Flavor Haven</h1>
+      <p>Where Every Bite Tells a Story</p>
+    </header>
+    <div id="menu-sections"></div>
+    <footer class="menu-footer">
+      <p>&copy; 2024 Flavor Haven Restaurant &nbsp;|&nbsp; Open: 11 AM – 11 PM</p>
+    </footer>
+  </div>
+</div>
+
+
+<!-- DETAIL PAGE -->
+<div class="page" id="detail-page">
+  <button class="detail-back-btn" onclick="goTo('menu-page')" title="Back to menu">&#8592;</button>
+  <div class="detail-hero">
+    <img id="detail-img" src="" alt="">
+    <div class="detail-hero-overlay">
+      <h2 id="detail-name"></h2>
+      <div class="detail-price" id="detail-price"></div>
+    </div>
+  </div>
+  <div class="detail-body">
+    <div class="detail-badge-row" id="detail-badges"></div>
+    <p class="detail-desc" id="detail-desc"></p>
+    <div class="detail-info-grid">
+      <div class="info-card"><div class="ic-label">Category</div><div class="ic-val" id="di-cat"></div></div>
+      <div class="info-card"><div class="ic-label">Type</div><div class="ic-val" id="di-type"></div></div>
+      <div class="info-card"><div class="ic-label">Prep Time</div><div class="ic-val" id="di-time"></div></div>
+      <div class="info-card"><div class="ic-label">Serves</div><div class="ic-val" id="di-serves"></div></div>
+    </div>
+    <button class="order-btn" onclick="openPayment()">Order Now &amp; Pay</button>
+  </div>
+</div>
+
+<!-- PAYMENT PAGE -->
+<div class="page" id="payment-page">
+  <button class="payment-back-btn" onclick="goTo('detail-page')" title="Back">&#8592;</button>
+  <div class="payment-container">
+    <div class="payment-header">
+      <h2>Complete Your Order</h2>
+      <p>Fill in your details and choose a payment method</p>
+    </div>
+
+    <div class="payment-card">
+      <h3><span>🧾</span> Bill Summary</h3>
+      <div class="bill-row"><span id="bill-item-name">—</span><span id="bill-base">—</span></div>
+      <div class="bill-row gst-row"><span>GST (2%)</span><span id="bill-gst">—</span></div>
+      <div class="bill-row total"><span>Total Amount</span><span id="bill-total">—</span></div>
+    </div>
+
+    <div class="payment-card">
+      <h3><span>👤</span> Your Details</h3>
+      <div class="form-group">
+        <label>Full Name *</label>
+        <input type="text" id="cust-name" placeholder="Enter your name">
+        <div class="error-msg" id="err-name">Please enter your name.</div>
+      </div>
+      <div class="form-group">
+        <label>Phone Number *</label>
+        <input type="tel" id="cust-phone" placeholder="+91 XXXXXXXXXX" maxlength="13">
+        <div class="error-msg" id="err-phone">Enter a valid 10-digit phone number.</div>
+      </div>
+      <div class="form-group">
+        <label>Email Address (optional)</label>
+        <input type="email" id="cust-email" placeholder="you@email.com">
+      </div>
+      <div class="form-group">
+        <label>Table / Delivery Address *</label>
+        <input type="text" id="cust-address" placeholder="Table no. or delivery address">
+        <div class="error-msg" id="err-address">Please enter table no. or address.</div>
+      </div>
+    </div>
+
+    <div class="payment-card">
+      <h3><span>💳</span> Payment Method *</h3>
+      <div class="pay-method-grid" id="pay-method-grid">
+        <div class="pay-option" data-method="PhonePe" onclick="selectPayment(this)">
+          <span class="pm-icon"><img src="images/phone pay" alt=""></span><span class="pm-label">PhonePe</span>
+        </div>
+        <div class="pay-option" data-method="Google Pay" onclick="selectPayment(this)">
+          <span class="pm-icon"><img src="images/paytm.png" alt=""></span><span class="pm-label">Google Pay</span>
+        </div>
+        <div class="pay-option" data-method="Paytm" onclick="selectPayment(this)">
+          <span class="pm-icon"><img src="images/g pay.png" alt=""></span><span class="pm-label">Paytm</span>
+        </div>
+        <div class="pay-option" data-method="Cash" onclick="selectPayment(this)">
+          <span class="pm-icon"><img src="images/cash.png" alt=""></span><span class="pm-label">Cash</span>
+        </div>
+      </div>
+      <div class="error-msg" id="err-payment" style="margin-top:8px;">Please select a payment method.</div>
+    </div>
+
+    <button class="pay-btn" onclick="placeOrder()">Confirm &amp; Pay</button>
+  </div>
+</div>
+
+<!-- CONFIRMATION PAGE -->
+<div class="page" id="confirm-page">
+  <div class="confirm-card">
+    <span class="confirm-icon">✅</span>
+    <h2>Order Confirmed!</h2>
+    <p>Thank you, <strong id="conf-name"></strong>! Your order is being prepared.</p>
+    <div class="confirm-order-id" id="conf-order-id">Order #FH-000000</div>
+    <p id="conf-item"></p>
+    <p id="conf-payment"></p>
+    <p style="margin-top:10px; font-size:0.88rem; color:#aaa;">Estimated time: 25–35 minutes</p>
+    <button class="confirm-home-btn" onclick="goHome()">Back to Menu</button>
+  </div>
+</div>
+<script src="index.js"></script>
+</html>
